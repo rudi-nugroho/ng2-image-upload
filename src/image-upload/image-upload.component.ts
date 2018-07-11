@@ -82,7 +82,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes) {
     if (changes.uploadedFiles && changes.uploadedFiles.currentValue.length > 0) {
-      this.processUploadedFiles(changes.uploadedFiles.currentValue);
+      this.processUploadedFiles(changes.uploadedFiles.previousValue);
     }
   }
 
