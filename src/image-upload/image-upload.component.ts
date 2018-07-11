@@ -82,7 +82,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes) {
     if (changes.uploadedFiles && changes.uploadedFiles.currentValue.length > 0) {
-      this.processUploadedFiles();
+      this.processUploadedFiles(changes.uploadedFiles.previousValue);
     }
   }
 
@@ -116,7 +116,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
     }
   }
 
-  private processUploadedFiles() {
+  private processUploadedFiles(existingFiles: string[]) {
     for (let i = 0; i < this.uploadedFiles.length; i++) {
       let data: any = this.uploadedFiles[i];
 
@@ -133,8 +133,16 @@ export class ImageUploadComponent implements OnInit, OnChanges {
         fileBlob = new Blob([fileUrl]);
         file = new File([fileBlob], fileUrl);
       }
-
+      let fileNotExist = true;
+      for (let j = 0; j < existingFiles.length; j++) {
+        if (fileUrl == existingFiles[j]) {
+          fileNotExist = false;
+          break;
+        }
+      }
+      if (fileNotExist) {
       this.files.push(new FileHolder(fileUrl, file));
+      }
     }
   }
 
