@@ -134,10 +134,12 @@ export class ImageUploadComponent implements OnInit, OnChanges {
         file = new File([fileBlob], fileUrl);
       }
       let fileNotExist = true;
-      for (let j = 0; j < existingFiles.length; j++) {
-        if (fileUrl == existingFiles[j]) {
-          fileNotExist = false;
-          break;
+      if (existingFiles) {
+        for (let j = 0; j < existingFiles.length; j++) {
+          if (fileUrl == existingFiles[j]) {
+            fileNotExist = false;
+            break;
+          }
         }
       }
       if (fileNotExist) {
