@@ -1,14 +1,14 @@
 <h4 class="mb-3 mt-5">Limit and filter images</h4>
 
-<image-upload url="https://httpbin.org/status/200" [max]="2" [extensions]="['jpeg','png']"></image-upload>
+<image-upload url="https://localhost:44319/api/fileupload/circleCheck" [max]="2" [extensions]="['jpeg','png']"></image-upload>
 
 <pre><code class="language-markup"><![CDATA[<image-upload url="https://httpbin.org/status/200" [max]="2" [extensions]="['jpeg','png']"></image-upload>]]></code></pre>
 
 <h5 class="mb-3 mt-3">Manual filtering and editing</h5>
 
-<image-upload url="https://httpbin.org/status/200" [beforeUpload]="onBeforeUpload"></image-upload>
+<image-upload url="https://localhost:44319/api/fileupload/circleCheck" [beforeUpload]="onBeforeUpload"></image-upload>
 
-<pre><code class="language-markup"><![CDATA[<image-upload url="https://httpbin.org/status/200" [beforeUpload]="onBeforeUpload"></image-upload>]]></code></pre>
+<pre><code class="language-markup"><![CDATA[<image-upload url="https://localhost:44319/api/fileupload/circleCheck" [beforeUpload]="onBeforeUpload"></image-upload>]]></code></pre>
 
 <pre><code class="language-typescript"><![CDATA[private fileCounter = 0;
 

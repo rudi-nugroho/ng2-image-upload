@@ -1,13 +1,19 @@
 <h4 class="mb-3 mt-5">Events</h4>
 
-<image-upload url="https://httpbin.org/status/200"
-              (removed)="onRemoved($event)"
-              (uploadFinished)="onUploadFinished($event)"
-              (uploadStateChanged)="onUploadStateChanged($event)">
+<image-upload url="https://localhost:44319/api/fileupload/circleCheck"
+  [max]="2" [extensions]="['jpeg','png']"
+  [beforeUpload]="onBeforeUpload" [maxFileSize]="5390"
+  (beforeUploadMaxSize)="onBeforeUploadMaxSize($event)"
+  (removed)="onRemoved($event)"
+  (uploadFinished)="onUploadFinished($event)"
+  (uploadStateChanged)="onUploadStateChanged($event)">
 </image-upload>
 
 <pre><code class="language-markup"><![CDATA[<image-upload
-  url="https://httpbin.org/status/200"
+  url="https://localhost:44319/api/fileupload/circleCheck"
+  [max]="2" [extensions]="['jpeg','png']"
+  [beforeUpload]="onBeforeUpload" [maxFileSize]="5390"
+  (beforeUploadMaxSize)="onBeforeUploadMaxSize($event)"
   (removed)="onRemoved($event)"
   (uploadFinished)="onUploadFinished($event)"
   (uploadStateChanged)="onUploadStateChanged($event)">

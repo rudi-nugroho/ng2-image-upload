@@ -30,7 +30,7 @@
     <div class="img-ul-drag-box-msg" [innerText]="dropBoxMessage"></div>
   </div>
 
-  <p class="img-ul-file-too-large" *ngIf="showFileTooLargeMessage" [innerText]="fileTooLargeMessage"></p>
+  <p class="img-ul-file-too-large" *ngIf="showFileTooLargeMessage && fileTooLargeMessage" [innerText]="fileTooLargeMessage"></p>
 
   <div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
     <div

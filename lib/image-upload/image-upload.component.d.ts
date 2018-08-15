@@ -46,6 +46,7 @@ export declare class ImageUploadComponent implements OnInit, OnChanges {
     uploadStateChanged: EventEmitter<boolean>;
     uploadFinished: EventEmitter<FileHolder>;
     previewClicked: EventEmitter<FileHolder>;
+    beforeUploadMaxSize: EventEmitter<File>;
     private inputElement;
     private pendingFilesCounter;
     constructor(imageService: ImageService);

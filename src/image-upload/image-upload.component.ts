@@ -46,6 +46,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @Output() uploadStateChanged = new EventEmitter<boolean>();
   @Output() uploadFinished = new EventEmitter<FileHolder>();
   @Output() previewClicked = new EventEmitter<FileHolder>();
+  @Output() beforeUploadMaxSize = new EventEmitter<File>();
 
   @ViewChild('input')
   private inputElement: ElementRef;
@@ -155,7 +156,9 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       if (this.maxFileSize && file.size > this.maxFileSize) {
         this.fileCounter--;
         this.inputElement.nativeElement.value = '';
+        this.fileTooLargeMessage = '';
         this.showFileTooLargeMessage = true;
+        this.beforeUploadMaxSize.emit(file);
         continue;
       }
 
